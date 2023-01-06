@@ -36,12 +36,12 @@ if st.button("Submit"):
     prediction = clf.predict(X)[0]
     explainer = shap.TreeExplainer(clf)
     shap_values = explainer.shap_values(X)
-    f = plt.figure()
-    shap.force_plot(explainer.expected_value, shap_values[0,:], X.iloc[0,:])
-    f.savefig("shap_force_plot.png", bbox_inches='tight', dpi=600)
-    # Output prediction
-    P = mpimg.imread("shap_force_plot.png")
-    st.image(P, caption="shap_force_plot", channels="RGB")
-    st.text(f"This patient has a higher probability of {prediction} within 72 hours")
+    #f = plt.figure()
+    #shap.force_plot(explainer.expected_value, shap_values[0,:], X.iloc[0,:])
+    #f.savefig("shap_force_plot.png", bbox_inches='tight', dpi=600)
+    #Output prediction
+    #P = mpimg.imread("shap_force_plot.png")
+    #st.image(P, caption="shap_force_plot", channels="RGB")
+    
     st_shap(shap.force_plot(explainer.expected_value, shap_values[0,:], X.iloc[0,:]), height=200, width=1000)
-    st_shap(shap.force_plot(explainer.expected_value, shap_values[:1000,:], X.iloc[:1000,:]), height=400, width=1000)
+    st.text(f"This patient has a higher probability of {prediction} within 72 hours")
