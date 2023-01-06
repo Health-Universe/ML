@@ -36,5 +36,5 @@ if st.button("Submit"):
     shap_values = explainer.shap_values(X)
     image = shap.force_plot(explainer.expected_value, shap_values[0,:], X.iloc[0,:])
     # Output prediction
-    streamlit.image(image, caption=None, width=None, use_column_width=False, clamp=False, channels='RGB', format='JPEG')
+    st.image(image, caption=None, width=None, use_column_width=False, clamp=False, channels='RGB', format='JPEG')
     st.text(f"This patient has a higher probability of {prediction} within 72 hours")
