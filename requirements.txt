@@ -2,3 +2,4 @@ pandas==1.0.5
 streamlit==1.14.1
 joblib==0.16.0
 catboost==1.1.1
+numpy==1.23.1
