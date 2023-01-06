@@ -38,7 +38,7 @@ if st.button("Submit"):
     shap_values = explainer.shap_values(X)
     f = plt.figure()
     shap.force_plot(explainer.expected_value, shap_values[0,:], X.iloc[0,:])
-    f.savefig("D:/Documents/shap_force_plot.png", bbox_inches='tight', dpi=600)
+    f.savefig("shap_force_plot.png", bbox_inches='tight', dpi=600)
     # Output prediction
     P = mpimg.imread("shap_force_plot.png")
     st.image(P, caption="shap_force_plot", channels="RGB")
