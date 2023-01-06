@@ -1,5 +1,6 @@
 import streamlit as st
 import shap
+from streamlit_shap import st_shap
 import pandas as pd
 import joblib
 import matplotlib.pyplot as plt
@@ -42,3 +43,5 @@ if st.button("Submit"):
     P = mpimg.imread("shap_force_plot.png")
     st.image(P, caption="shap_force_plot", channels="RGB")
     st.text(f"This patient has a higher probability of {prediction} within 72 hours")
+    st_shap(shap.force_plot(explainer.expected_value, shap_values[0,:], X_display.iloc[0,:]), height=200, width=1000)
+    st_shap(shap.force_plot(explainer.expected_value, shap_values[:1000,:], X_display.iloc[:1000,:]), height=400, width=1000)
