@@ -21,7 +21,7 @@ prothrombin_time = st.number_input("Enter prothrombin_time (sec)")
 # If button is pressed
 if st.button("Submit"):
     # Unpickle classifier
-    clf = joblib.load("D:/Documents/Thrombolysis/second/clf1.pkl")
+    clf = joblib.load("clf1.pkl")
 
     # Store inputs into dataframe
     X = pd.DataFrame([[ott, NIHSS_score_before_thrombolysis,hemoglobin,
