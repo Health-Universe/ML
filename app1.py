@@ -36,7 +36,7 @@ if st.button("Submit"):
     explainer = shap.TreeExplainer(clf)
     shap_values = explainer.shap_values(X)
     f = plt.figure()
-    shap.force_plot(explainer.expected_value, shap_values[:,:], X.iloc[:,:])
+    shap.force_plot(explainer.expected_value, shap_values, X.iloc)
     f.savefig("shap_force_plot.png", bbox_inches='tight', dpi=600)
     # Output prediction
     P = mpimg.imread("shap_force_plot.png")
