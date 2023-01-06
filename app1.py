@@ -1,5 +1,5 @@
 import streamlit as st
-
+import shap
 import pandas as pd
 import joblib
 
@@ -32,6 +32,9 @@ if st.button("Submit"):
 
     # Get prediction
     prediction = clf.predict(X)[0]
-
+    explainer = shap.TreeExplainer(clf)
+    shap_values = explainer.shap_values(X)
+    image = shap.force_plot(explainer.expected_value, shap_values[0,:], X.iloc[0,:])
     # Output prediction
+    streamlit.image(image, caption=None, width=None, use_column_width=False, clamp=False, channels='RGB', format='JPEG')
     st.text(f"This patient has a higher probability of {prediction} within 72 hours")
