@@ -2,7 +2,7 @@ import streamlit as st
 import shap
 import pandas as pd
 import joblib
-
+import matplotlib.pyplot as plt
 # Title
 st.header("Risk prediction of early neurological deterioration within 72 hours after thrombolytic therapy in ischemic stroke")
 
@@ -34,7 +34,9 @@ if st.button("Submit"):
     prediction = clf.predict(X)[0]
     explainer = shap.TreeExplainer(clf)
     shap_values = explainer.shap_values(X)
-    image = shap.force_plot(explainer.expected_value, shap_values[0,:], X.iloc[0,:])
+    f = plt.figure()
+    shap.force_plot(explainer.expected_value, shap_values[0,:], X.iloc[0,:])
+    f.savefig("shap_force_plot.png", bbox_inches='tight', dpi=600)
     # Output prediction
-    st.image(image, caption=None, width=None, use_column_width=False, clamp=False, channels='RGB', format='JPEG')
+    st.image(f, caption="shap_force_plot", use_column_width=True)
     st.text(f"This patient has a higher probability of {prediction} within 72 hours")
