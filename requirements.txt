@@ -3,3 +3,4 @@ streamlit==1.14.1
 joblib==0.16.0
 catboost==1.1.1
 numpy==1.23.1
+shap==0.41.0
