@@ -40,5 +40,5 @@ if st.button("Submit"):
     f.savefig("shap_force_plot.png", bbox_inches='tight', dpi=600)
     # Output prediction
     P = mpimg.imread("shap_force_plot.png")
-    st.image(P, caption="shap_force_plot", use_column_width=True,format='PNG')
+    st.image(P, caption="shap_force_plot", use_column_width=True)
     st.text(f"This patient has a higher probability of {prediction} within 72 hours")
