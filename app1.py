@@ -3,6 +3,7 @@ import shap
 import pandas as pd
 import joblib
 import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
 # Title
 st.header("Risk prediction of early neurological deterioration within 72 hours after thrombolytic therapy in ischemic stroke")
 
@@ -38,5 +39,6 @@ if st.button("Submit"):
     shap.force_plot(explainer.expected_value, shap_values[0,:], X.iloc[0,:])
     f.savefig("shap_force_plot.png", bbox_inches='tight', dpi=600)
     # Output prediction
-    st.image(f, caption="shap_force_plot", use_column_width=True,format='PNG')
+    P = mpimg.imread("shap_force_plot.png")
+    st.image(P, caption="shap_force_plot", use_column_width=True,format='PNG')
     st.text(f"This patient has a higher probability of {prediction} within 72 hours")
