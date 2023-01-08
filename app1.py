@@ -27,7 +27,7 @@ if st.button("Submit"):
     clf = joblib.load("clfFinal.pkl")
 
     # Store inputs into dataframe
-    X = pd.DataFrame([[ott, White_blood_cell,LMR，hemoglobin,
+    X = pd.DataFrame([[ott,White_blood_cell,LMR，hemoglobin,
                        Thrombin_time,prothrombin_time]],
                      columns=["ott", "White_blood_cell","LMR","hemoglobin",
                        "Thrombin_time","prothrombin_time"])
