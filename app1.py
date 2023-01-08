@@ -12,12 +12,12 @@ st.header("Risk prediction of early neurological deterioration within 72 hours a
 ott = st.number_input("Enter Time from onset to treatment (h)")
 
 # Input bar 2
-White_blood_cell = st.number_input("Enter White blood cell (×10⁹/L)")
-LMR= st.number_input("Enter Lymphocyte to monocyte ratio")
+White_blood_cell = st.number_input("Enter White blood cell count(×10⁹/L)")
+LMR= st.number_input("Enter Lymphocyte count(×10⁹/L) to monocyte count(×10⁹/L) ratio")
 #NIHSS_score_after_thrombolysis1 = st.number_input("Enter NIHSS score after thrombolysis")
-hemoglobin = st.number_input("Enter hemoglobin (g/L)")
+hemoglobin = st.number_input("Enter Hemoglobin (g/L)")
 Thrombin_time = st.number_input("Enter Thrombin_time (sec)")
-prothrombin_time = st.number_input("Enter prothrombin_time (sec)")
+prothrombin_time = st.number_input("Enter Prothrombin_time (sec)")
 # Dropdown input
 
 
