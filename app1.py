@@ -44,5 +44,5 @@ if st.button("Submit"):
     #P = mpimg.imread("shap_force_plot.png")
     #st.image(P, caption="shap_force_plot", channels="RGB")
     
-    st_shap(shap.force_plot(explainer.expected_value, shap_values[0,:], X.iloc[0,:]), height=200, width=800)
+    st_shap(shap.force_plot(explainer.expected_value, shap_values[0,:], X.iloc[0,:]), height=200, width=1000)
     st.text(f"This patient has a higher probability of {prediction} within 72 hours")
