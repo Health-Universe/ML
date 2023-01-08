@@ -12,24 +12,25 @@ st.header("Risk prediction of early neurological deterioration within 72 hours a
 ott = st.number_input("Enter Time from onset to treatment (h)")
 
 # Input bar 2
-NIHSS_score_before_thrombolysis = st.number_input("Enter NIHSS score before thrombolysis")
+White_blood_cell = st.number_input("Enter White blood cell (×10⁹/L)")
+LMR= st.number_input("Enter Lymphocyte to monocyte ratio")
 #NIHSS_score_after_thrombolysis1 = st.number_input("Enter NIHSS score after thrombolysis")
 hemoglobin = st.number_input("Enter hemoglobin (g/L)")
 Thrombin_time = st.number_input("Enter Thrombin_time (sec)")
-lymphocyte= st.number_input("Enter lymphocyte_count (×10⁹/L)")
-# Dropdown input
 prothrombin_time = st.number_input("Enter prothrombin_time (sec)")
+# Dropdown input
+
 
 # If button is pressed
 if st.button("Submit"):
     # Unpickle classifier
-    clf = joblib.load("clf1.pkl")
+    clf = joblib.load("clfFinal.pkl")
 
     # Store inputs into dataframe
-    X = pd.DataFrame([[ott, NIHSS_score_before_thrombolysis,hemoglobin,
-                       Thrombin_time,lymphocyte,prothrombin_time]],
-                     columns=["ott", "NIHSS_score_before_thrombolysis","hemoglobin",
-                       "Thrombin_time","lymphocyte","prothrombin_time"])
+    X = pd.DataFrame([[ott, White_blood_cell,LMR，hemoglobin,
+                       Thrombin_time,prothrombin_time]],
+                     columns=["ott", "White_blood_cell","LMR","hemoglobin",
+                       "Thrombin_time","prothrombin_time"])
 
 
     # Get prediction
