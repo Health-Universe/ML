@@ -35,7 +35,6 @@ if st.button("Submit"):
 
     # Get prediction
     prediction = clf.predict(X)[0]
-    prediction= prediction.replace(to_replace=['0','1'],value=[Non-END,END])
     explainer = shap.TreeExplainer(clf)
     shap_values = explainer.shap_values(X)
     #f = plt.figure()
@@ -47,4 +46,8 @@ if st.button("Submit"):
     #st_shap(shap.plots.waterfall(shap_values[0]), height=300)
     #st_shap(shap.plots.beeswarm(shap_values), height=300)
     st_shap(shap.force_plot(explainer.expected_value, shap_values[0,:], X.iloc[0,:]), height=200, width=700)
-    st.text(f"This patient has a higher probability of {prediction} within 72 hours")
+    if(prediction = 0):
+    st.text(f"This patient has a higher probability of Non-END within 72 hours")
+    else:
+    st.text(f"This patient has a higher probability of END within 72 hours")
+    
