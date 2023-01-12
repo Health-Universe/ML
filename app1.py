@@ -35,6 +35,7 @@ if st.button("Submit"):
 
     # Get prediction
     prediction = clf.predict(X)[0]
+    prediction= prediction.replace(to_replace=['0','1'],value=[Non-END,END])
     explainer = shap.TreeExplainer(clf)
     shap_values = explainer.shap_values(X)
     #f = plt.figure()
