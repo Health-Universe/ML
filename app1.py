@@ -27,10 +27,10 @@ if st.button("Submit"):
     clf = joblib.load("clfUSED.pkl")
 
     # Store inputs into dataframe
-    X = pd.DataFrame([[ott,White_blood_cell,LMR,hemoglobin,
-                       Thrombin_time,prothrombin_time]],
-                     columns=["ott", "White_blood_cell","LMR","hemoglobin",
-                       "Thrombin_time","prothrombin_time"])
+    X = pd.DataFrame([[ott,White_blood_cell,hemoglobin,
+                       prothrombin_time,Thrombin_time,LMR]],
+                     columns=["ott","White_blood_cell","hemoglobin",
+                       "prothrombin_time","Thrombin_time","LMR"])
 
 
     # Get prediction
