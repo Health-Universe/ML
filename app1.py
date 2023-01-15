@@ -6,7 +6,7 @@ import joblib
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 # Title
-st.header("Risk prediction of early neurological deterioration within 72 hours after thrombolytic therapy in ischemic stroke")
+st.header("Risk prediction of early neurological deterioration within 24 hours after thrombolytic therapy in ischemic stroke")
 
 # Input bar 1
 ott = st.number_input("Enter Time from onset to treatment (h)")
@@ -47,7 +47,7 @@ if st.button("Submit"):
     #st_shap(shap.plots.beeswarm(shap_values), height=300)
     st_shap(shap.force_plot(explainer.expected_value, shap_values[0,:], X.iloc[0,:]), height=200, width=700)
     if prediction == 0:
-       st.text(f"This patient has a higher probability of Non-END within 72 hours")
+       st.text(f"This patient has a higher probability of Non-END within 24 hours")
     else:
-       st.text(f"This patient has a higher probability of END within 72 hours")
+       st.text(f"This patient has a higher probability of END within 24 hours")
     
