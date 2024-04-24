@@ -1,9 +1,10 @@
-pandas==1.0.5
+pandas
 streamlit==1.14.1
 joblib==0.16.0
 catboost==1.1.1
 numpy==1.23.1
-shap==0.41.0
-matplotlib==3.2.2
+shap
+matplotlib
 streamlit_shap==1.0.2
 xgboost==1.7.1
+altair==4.0
